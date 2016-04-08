@@ -20,6 +20,7 @@ import org.eclipse.ui.model.WorkbenchLabelProvider;
 
 import jtools.action.shortcuts.Activator;
 import jtools.action.shortcuts.preferences.PreferenceConstants;
+import jtools.action.shortcuts.wizards.SampleNewWizard;
 
 import org.eclipse.jface.dialogs.IDialogSettings;
 import org.eclipse.jface.dialogs.MessageDialog;
@@ -52,9 +53,9 @@ public class ShortcutHandler extends AbstractHandler  {
 	 * from the application context.
 	 */
 	public Object execute(ExecutionEvent event) throws ExecutionException {
-		IPreferenceStore store = Activator.getDefault().getPreferenceStore();
+		/*IPreferenceStore store = Activator.getDefault().getPreferenceStore();
 
-		String url = store.getString(PreferenceConstants.P_URL);
+		String url = store.getString(PreferenceConstants.P_URL);/*
 
 		/*try {
 			PlatformUI.getWorkbench().getBrowserSupport().getExternalBrowser().openURL(new URL(url));
@@ -66,152 +67,24 @@ public class ShortcutHandler extends AbstractHandler  {
 			e.printStackTrace();
 		}*/
 
-		String[] urls = StringUtils.split(url,"/n");
+		/*String[] urls = StringUtils.split(url,"/n");
 		
 		List<String> lista = new ArrayList<>();
 		
 		for(int i=0; i<urls.length; i++ ) {
              lista.add(urls[i]);
-        }
+        }*/
 
 		IWorkbenchWindow window = HandlerUtil.getActiveWorkbenchWindowChecked(event);
 
 		//MessageDialog.openInformation(window.getShell(), "Jtools Shortcuts", "Hello, Eclipse world");
 		
 
+		SampleNewWizard wiz = new SampleNewWizard();
 
 
 	      // Create the wizard dialog
-	      WizardDialog dialog = new WizardDialog(window.getShell(), new IWizard() {
-			
-			@Override
-			public void setContainer(IWizardContainer arg0) {
-				// TODO Auto-generated method stub
-				
-			}
-			
-			@Override
-			public boolean performFinish() {
-				// TODO Auto-generated method stub
-				return false;
-			}
-			
-			@Override
-			public boolean performCancel() {
-				// TODO Auto-generated method stub
-				return false;
-			}
-			
-			@Override
-			public boolean needsProgressMonitor() {
-				// TODO Auto-generated method stub
-				return false;
-			}
-			
-			@Override
-			public boolean needsPreviousAndNextButtons() {
-				// TODO Auto-generated method stub
-				return false;
-			}
-			
-			@Override
-			public boolean isHelpAvailable() {
-				// TODO Auto-generated method stub
-				return false;
-			}
-			
-			@Override
-			public String getWindowTitle() {
-				// TODO Auto-generated method stub
-				return null;
-			}
-			
-			@Override
-			public RGB getTitleBarColor() {
-				// TODO Auto-generated method stub
-				return null;
-			}
-			
-			@Override
-			public IWizardPage getStartingPage() {
-				// TODO Auto-generated method stub
-				return null;
-			}
-			
-			@Override
-			public IWizardPage getPreviousPage(IWizardPage arg0) {
-				// TODO Auto-generated method stub
-				return null;
-			}
-			
-			@Override
-			public IWizardPage[] getPages() {
-				// TODO Auto-generated method stub
-				return null;
-			}
-			
-			@Override
-			public int getPageCount() {
-				// TODO Auto-generated method stub
-				return 0;
-			}
-			
-			@Override
-			public IWizardPage getPage(String arg0) {
-				// TODO Auto-generated method stub
-				return null;
-			}
-			
-			@Override
-			public IWizardPage getNextPage(IWizardPage arg0) {
-				// TODO Auto-generated method stub
-				return null;
-			}
-			
-			@Override
-			public IDialogSettings getDialogSettings() {
-				// TODO Auto-generated method stub
-				return null;
-			}
-			
-			@Override
-			public Image getDefaultPageImage() {
-				// TODO Auto-generated method stub
-				return null;
-			}
-			
-			@Override
-			public IWizardContainer getContainer() {
-				// TODO Auto-generated method stub
-				return null;
-			}
-			
-			@Override
-			public void dispose() {
-				// TODO Auto-generated method stub
-				
-			}
-			
-			@Override
-			public void createPageControls(Composite arg0) {
-				// TODO Auto-generated method stub
-				
-			}
-			
-			@Override
-			public boolean canFinish() {
-				// TODO Auto-generated method stub
-				return false;
-			}
-			
-			@Override
-			public void addPages() {
-				 super.addPages();
-			      setWindowTitle("New Hadoop location...");
-			      addPage(page);
-				
-			}
-		});
+	      WizardDialog dialog = new WizardDialog(window.getShell(), wiz);
 	      // Open the wizard dialog
 	      dialog.create();
 	      dialog.setBlockOnOpen(true);
