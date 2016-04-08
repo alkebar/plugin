@@ -7,10 +7,11 @@ import org.eclipse.ui.IWorkbench;
 import org.eclipse.ui.IWorkbenchPreferencePage;
 
 import jtools.action.shortcuts.Activator;
-import jtools.action.shortcuts.preferences.editors.shortcutsListEditor;
+import jtools.action.shortcuts.preferences.editors.ShortcutsListEditor;
 
 public class ShortcutsPage extends FieldEditorPreferencePage implements IWorkbenchPreferencePage {
 
+	//tela de preferencia
 	public ShortcutsPage() {
 		super(GRID);
 		setPreferenceStore(Activator.getDefault().getPreferenceStore());
@@ -19,7 +20,7 @@ public class ShortcutsPage extends FieldEditorPreferencePage implements IWorkben
 
 	//dialog do botão NEW na tela de preferencias
 	public void createFieldEditors() {
-		addField (new shortcutsListEditor(PreferenceConstants.P_URL, "Enter a URL:", getFieldEditorParent()));
+		addField (new ShortcutsListEditor(PreferenceConstants.P_URL, "Enter a URL:", getFieldEditorParent()));
 	}
 
 

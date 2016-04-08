@@ -61,14 +61,9 @@
    <extension
          point="org.eclipse.ui.preferencePages">
       <page
-            class="jtools.action.shortcuts.preferences.ShortcutsPage1"
-            id="jtools.action.shortcuts.preferences.ShortcutsPage"
-            name="Jtools">
-      </page>
-      <page
             class="jtools.action.shortcuts.preferences.ShortcutsPage"
             id="jtools.action.shortcuts.preferences.ShortcutsPage2"
-            category="jtools.action.shortcuts.preferences.ShortcutsPage"
+            category="jtools.eclipse.core.preference.page"
             name="Shortcuts Preferences">
       </page>
    </extension>

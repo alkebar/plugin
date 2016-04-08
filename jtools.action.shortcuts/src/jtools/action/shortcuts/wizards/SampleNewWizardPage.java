@@ -45,18 +45,14 @@ public class SampleNewWizardPage extends WizardPage {
 
 		String url = store.getString(PreferenceConstants.P_URL);
 
-		String[] urls = StringUtils.split(url, "/n");
+		String[] urls = StringUtils.split(url, ";");
 
 
 		Composite container = new Composite(parent, SWT.NULL);
 		GridLayout layout = new GridLayout();
 		container.setLayout(layout);
-		layout.numColumns = 3;
+		layout.numColumns = 1;
 	
-		Label label1 = new Label(container, SWT.NULL);
-		label1.setText(url);
-		
-		
 		
 
 		for (int i = 0; i < urls.length; i++) {

@@ -6,18 +6,18 @@ import org.eclipse.jface.dialogs.InputDialog;
 import org.eclipse.jface.preference.ListEditor;
 import org.eclipse.swt.widgets.Composite;
 
-public class shortcutsListEditor extends ListEditor {
+public class ShortcutsListEditor extends ListEditor {
 
 	
 	
-	public shortcutsListEditor(String name, String labelText, Composite parent) {
+	public ShortcutsListEditor(String name, String labelText, Composite parent) {
 		super(name, labelText, parent);
 
 	}
 
 	@Override
 	protected String[] parseString(String stringList) {
-        String[] list = stringList.split("\n");
+        String[] list = stringList.split(";");
         Arrays.sort(list);
 		return list;
 	}
@@ -34,7 +34,7 @@ public class shortcutsListEditor extends ListEditor {
 		StringBuffer buf = new StringBuffer();
 		for(int i=0;i<items.length;i++)
 		{
-			buf.append(items[i]).append("\n");
+			buf.append(items[i]).append(";");
 			
 		}
 		return buf.toString();
